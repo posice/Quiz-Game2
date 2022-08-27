@@ -25,6 +25,8 @@ public class MainController {
         return player.getLevel();
     }
 
+    public int getPlayerPoints(){ return player.getPoints();}
+
     //TODO Schreiben und Lesen der Spielerpunkte hinzufügen
 
     //TODO Auslesen des Spieldatums+Uhrzeit hinzufügen
@@ -46,6 +48,7 @@ public class MainController {
 
     public boolean answer(String chosenAnswer){
         if(chosenAnswer.equals(rightAnswer)){
+            player.setPoints(getPlayerPoints() + getPlayerLevel());
             player.setLevel(getPlayerLevel() + 1);
             return true;
         }

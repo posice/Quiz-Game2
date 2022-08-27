@@ -10,6 +10,7 @@ public class GamePanelHandler {
     private JPanel panel;
     private JLabel playerName;
     private JLabel playerLevel;
+    private JLabel playerPoints;
     private JTextArea questionArea;
     private JButton answerA;
     private JButton answerB;
@@ -23,6 +24,7 @@ public class GamePanelHandler {
         this.mainController = mainController;
         playerName.setText(mainController.getPlayerName());
         playerLevel.setText(String.valueOf(mainController.getPlayerLevel()));
+        playerPoints.setText(String.valueOf(mainController.getPlayerPoints()));
         createButtons();
 
         updateQuestionAndAnswers();
@@ -85,6 +87,7 @@ public class GamePanelHandler {
         if(mainController.answer(answer)){ //Falls Antwort korrekt, dann..
             moderator.setText("Richtig! Auf zur nächsten Frage!");
             playerLevel.setText(String.valueOf(mainController.getPlayerLevel()));
+            playerPoints.setText(String.valueOf(mainController.getPlayerPoints()));
             updateQuestionAndAnswers();     //Unbedingt die GUI aktualisieren!
         }else{  //sonst werden die Knöpfe ausgeschaltet etc.
             answerA.setEnabled(false);
